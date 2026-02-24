@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HipHop Move Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Landing (opening) page -->
+  <section id="landing" class="screen screen-landing">
+    <div class="landing-hero">
+      <div class="landing-bg"></div>
+      <h1 class="landing-title">
+        <span class="landing-title-white">HIPHOP</span>
+        <span class="landing-title-red">MOVE LAB</span>
+      </h1>
+      <p class="landing-tagline"><span class="tagline-white">Find Your</span> <span class="tagline-orange">Groove.</span></p>
+      <button type="button" class="landing-cta" id="btn-enter-library">ENTER THE MOVE LIBRARY</button>
+    </div>
+
+    <div class="featured-moves-section">
+      <div class="featured-separator">
+        <span class="featured-eq featured-eq-1"></span>
+        <span class="featured-eq featured-eq-2"></span>
+        <span class="featured-eq featured-eq-3"></span>
+        <span class="featured-text">— Featured Moves —</span>
+        <span class="featured-eq featured-eq-4"></span>
+        <span class="featured-eq featured-eq-5"></span>
+        <span class="featured-eq featured-eq-6"></span>
+      </div>
+      <div id="featured-cards" class="featured-cards">
+        <!-- Populated by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Browse Moves screen (list only, with preview videos) -->
+  <section id="screen-browse" class="screen screen-browse" hidden>
+    <header class="header">
+      <button type="button" class="back-btn" id="back-from-browse" aria-label="Back to home">←</button>
+      <h1 class="header-title">Move Library</h1>
+    </header>
+    <main class="main main-browse-only">
+      <aside id="move-list" class="move-list move-list-full" role="listbox" aria-label="Hip-hop moves">
+        <h2 class="panel-title">Browse moves</h2>
+        <ul class="move-list-inner" role="presentation"></ul>
+      </aside>
+    </main>
+  </section>
+
+  <!-- Move detail page (full screen for one move) -->
+  <section id="screen-move-detail" class="screen screen-move-detail" hidden>
+    <header class="header">
+      <button type="button" class="back-btn" id="back-from-move-detail" aria-label="Back to browse">←</button>
+      <h1 id="detail-name" class="header-title detail-name"></h1>
+    </header>
+    <div class="move-detail-page" aria-live="polite">
+      <div class="detail-meta">
+        <span id="detail-level" class="badge"></span>
+        <span id="detail-category" class="badge"></span>
+      </div>
+      <p id="detail-description" class="detail-description"></p>
+      <div class="video-wrapper">
+        <video id="move-video" controls preload="auto" playsinline>
+          <source id="move-video-source" type="video/mp4" src="">
+          Your browser does not support the video tag.
+        </video>
+        <p id="video-fallback" class="video-fallback" hidden>No video available for this move.</p>
+        <div class="video-controls">
+          <label for="playback-rate">Speed</label>
+          <select id="playback-rate">
+            <option value="0.25">0.25x</option>
+            <option value="0.5">0.5x</option>
+            <option value="0.75">0.75x</option>
+            <option value="1" selected>1x</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+          </select>
+          <label class="video-control-loop">
+            <input type="checkbox" id="video-loop" />
+            <span>Loop</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom navigation (Home + Move Library only) -->
+  <nav class="bottom-nav" id="bottom-nav" aria-label="Main navigation">
+    <button type="button" class="bottom-nav-item" id="nav-home" aria-label="Home">
+      <span class="bottom-nav-icon">⌂</span>
+      <span class="bottom-nav-label">Home</span>
+    </button>
+    <button type="button" class="bottom-nav-item" id="nav-lessons" aria-label="Move Library">
+      <span class="bottom-nav-icon">▶</span>
+      <span class="bottom-nav-label">Move Library</span>
+    </button>
+  </nav>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
